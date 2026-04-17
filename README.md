@@ -14,7 +14,7 @@ Use this section if you are running the project for the first time on a Linux PC
 You need:
 
 - Git
-- Python 3.10+ (with `venv` support)
+- Python 3.12.6 (with `venv` support)
 - Node.js 20+ and npm
 
 Choose your distro and run one of these blocks.
@@ -66,7 +66,7 @@ cd Claudians
 ## Prerequisites
 
 - Node.js 20+ and npm
-- Python 3.10+
+- Python 3.12.6
 
 ## Run Everything (Development)
 
@@ -78,9 +78,9 @@ Use two terminals.
 cd backend
 
 # First-time setup
-python3 -m venv .venv
+python3.12 -m venv .venv
 source .venv/bin/activate
-pip install fastapi uvicorn
+pip install -r requirements.txt
 
 # Run API
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
