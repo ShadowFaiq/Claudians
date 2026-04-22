@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes orbFloat1 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%      { transform: translate(60px,-80px) scale(1.15); }
+}
+@keyframes orbFloat2 {
+  0%,100% { transform: translate(0,0) scale(1); }
+  50%      { transform: translate(-50px,60px) scale(0.9); }
+}
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+@keyframes scoreIn {
+  from { stroke-dashoffset: 220; }
+  to   { stroke-dashoffset: var(--dash-offset); }
+}
+
+.animate-fade-slide-in  { animation: fadeSlideIn 0.4s ease both; }
+.animate-orb-1          { animation: orbFloat1 12s ease-in-out infinite; }
+.animate-orb-2          { animation: orbFloat2 15s ease-in-out infinite; }
+.animate-score-ring     { animation: scoreIn 1s ease both; }
+
+.shimmer {
+  background: linear-gradient(90deg, #141A2E 25%, #1e2640 50%, #141A2E 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+* { box-sizing: border-box; }
+body { background: #0A0F1E; color: #FFFFFF; }
+
+.glass {
+  background: rgba(20,26,46,0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.glow-violet { box-shadow: 0 0 30px rgba(124,58,237,0.25); }
+.glow-cyan   { box-shadow: 0 0 30px rgba(6,182,212,0.2); }
+.border-gradient {
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
