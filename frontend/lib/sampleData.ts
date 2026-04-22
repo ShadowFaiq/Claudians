@@ -1,6 +1,7 @@
 import type { OpportunityType } from "./types";
 
-export const SAMPLE_EMAILS = `---------- Forwarded message ---------
+export const SAMPLE_EMAILS_ARRAY: string[] = [
+  `---------- Forwarded message ---------
 From: HEC Scholarships <scholarships@hec.gov.pk>
 To: students@nu.edu.pk
 Date: Mon, 14 Apr 2026 09:12:00 +0500
@@ -13,212 +14,204 @@ The Higher Education Commission of Pakistan is pleased to announce the HEC Need-
 Eligibility:
 - Pakistani national enrolled in BS/BE program
 - Minimum CGPA: 2.5
-- Annual family income below PKR 500,000
+- Annual family income below PKR 600,000
 - Semester 2 through 8
 
 Required Documents:
 - CNIC copy
-- Income certificate from NADRA/Union Council
-- Academic transcripts
+- Income certificate from NADRA / Union Council
+- Latest academic transcripts
 - Bank statement (last 6 months)
+- Undertaking form (available on HEC portal)
 
+Stipend: PKR 10,000 per month + tuition waiver
 Deadline: 30 April 2026
 
 Apply at: https://scholarships.hec.gov.pk/need-based-2026
+Contact: scholarships@hec.gov.pk`,
 
-For queries: scholarships@hec.gov.pk
-
----
-
----------- Forwarded message ---------
-From: Fulbright Pakistan <fulbright@usefpakistan.org>
-To: highachievers@gmail.com
+  `---------- Forwarded message ---------
+From: USEFP Fulbright <fulbright@usefpakistan.org>
+To: highachievers-list@gmail.com
 Date: Tue, 15 Apr 2026 11:00:00 +0500
-Subject: Fulbright MS/PhD Program 2026-27 – Last Call
+Subject: Fulbright Scholarship 2026-27 – Last Call for Applications
 
-The United States Educational Foundation in Pakistan (USEFP) invites applications for the Fulbright Scholarship Program for the academic year 2026-27.
+The United States Educational Foundation in Pakistan (USEFP) invites applications for the Fulbright Scholarship Program 2026-27.
 
-Program: MS or PhD at a US university (fully funded)
+Program: MS or PhD in the USA — fully funded
 Eligibility:
 - Pakistani citizen
-- Minimum 16 years of education (Bachelor's degree)
-- Minimum CGPA: 3.0 or equivalent
-- Strong academic and leadership record
+- Minimum 16 years of education (BS/BE degree)
+- Minimum CGPA: 3.0 out of 4.0
+- No prior US degree
 
-Award Includes: Tuition, living allowance, travel, health insurance
+Award Covers: Full tuition, living allowance, return airfare, health insurance, book allowance
 
 Required Documents:
-- Statement of Purpose
+- Statement of Purpose (500–700 words)
 - Three recommendation letters
-- GRE/TOEFL scores (if available)
-- Academic transcripts
+- Transcripts from all universities attended
+- GRE scores (optional but preferred)
+- TOEFL/IELTS (if available)
 
 Application Deadline: 1 May 2026
-
 Apply: https://www.usefpakistan.org/fulbright
+Contact: fulbright@usefpakistan.org`,
 
-Contact: fulbright@usefpakistan.org
-
----
-
----------- Forwarded message ---------
+  `---------- Forwarded message ---------
 From: Tintash Careers <careers@tintash.com>
 To: cs-students@nu.edu.pk
 Date: Wed, 16 Apr 2026 14:30:00 +0500
-Subject: Software Engineer Intern – Tintash (Lahore) – Summer 2026
+Subject: Paid Software Engineer Intern – Tintash Summer 2026 (Lahore)
 
-Hi there,
+Hi,
 
-Tintash is hiring Software Engineer Interns for Summer 2026!
+Tintash is hiring Software Engineer Interns for Summer 2026. We're a Lahore-based award-winning product studio that has shipped products for clients in the US and Europe.
 
-About Tintash: Award-winning product studio based in Lahore, working with US/EU clients.
-
-Role: Software Engineer Intern (3 months, paid)
-Location: Lahore (on-site, DHA Phase 5)
+Role: Software Engineer Intern (3 months, on-site)
+Location: Lahore – DHA Phase 6
+Stipend: PKR 45,000/month
 
 Requirements:
-- CS/SE/IT undergraduate (Semester 4+)
-- Strong in: Python, React, or Node.js
+- CS / SE / IT undergraduate (Semester 4 or above)
+- Strong in Python, React, or Node.js
 - Minimum CGPA: 3.0
 
-What you'll work on: Real client products, not toy projects.
+To Apply: Send your CV and GitHub profile to careers@tintash.com
+Subject line: "SWE Intern Summer 2026 – [Your Name]"
+Deadline: 25 April 2026`,
 
-Perks: Competitive stipend, mentorship, possible full-time offer.
-
-To Apply: Send your CV to careers@tintash.com with subject "SWE Intern Summer 2026"
-
-Deadline: 25 April 2026
-
----
-
----------- Forwarded message ---------
-From: Google Developer Student Clubs <dscp@google.com>
+  `---------- Forwarded message ---------
+From: Google Developer Student Clubs <gdsc-pakistan@googlegroups.com>
 To: university-students@googlegroups.com
 Date: Thu, 10 Apr 2026 10:00:00 +0500
-Subject: Google Solution Challenge 2026 – Register Your Team Now
+Subject: Google Solution Challenge 2026 – Register Before 22 April
 
 Hello Developers,
 
-The Google Solution Challenge 2026 is now open for registration! Build solutions addressing the UN Sustainable Development Goals using Google technologies.
+The Google Solution Challenge 2026 is open for student teams worldwide. Build solutions for the UN Sustainable Development Goals using Google technologies.
 
 Who can participate:
-- University students worldwide
-- Teams of 1-4 members
-- GDSC members preferred (join for free at gdsc.community.dev)
+- University students (undergraduate or postgraduate)
+- Teams of 1–4 members
+- GDSC members preferred (free to join at gdsc.community.dev)
 
-Technologies: Android, Flutter, Firebase, Google Cloud, TensorFlow
+Technologies: Android, Flutter, Firebase, Google Cloud, TensorFlow, Gemini AI
 
-Prizes: Top 3 global teams win $3,000 each + Google Summit trip
+Top 3 global teams: $3,000 USD + trip to Google HQ
+Top 10 teams: Recognition + swag
 
 Registration Deadline: 22 April 2026
-Submission Deadline: 28 May 2026
+Final Submission: 28 May 2026
+Register: https://developers.google.com/community/gdsc-solution-challenge`,
 
-Register: https://developers.google.com/community/gdsc-solution-challenge
-
-No minimum CGPA required.
-
----
-
----------- Forwarded message ---------
+  `---------- Forwarded message ---------
 From: MLH Fellowship <fellowship@mlh.io>
-To: developers@hackers.io
+To: developers-pakistan@list.io
 Date: Fri, 11 Apr 2026 08:00:00 +0500
-Subject: MLH Fellowship – Spring/Summer 2026 Applications Open
+Subject: MLH Fellowship Spring/Summer 2026 – Stipend $5,000 – Apply Now
 
-Hey,
+MLH Fellowship applications for Spring/Summer 2026 batch are open!
 
-MLH Fellowship applications for Spring/Summer 2026 are now open!
-
-About: 12-week remote fellowship contributing to open-source projects used by millions.
+About: 12-week remote open-source fellowship used by thousands of students globally.
 
 Tracks:
-- Open Source (contribute to top GitHub repos)
-- Explorer (build your own project)
-- Production Engineering (partner companies)
+- Open Source (contribute to top GitHub repos — Mozilla, Meta, etc.)
+- Explorer (build your own project with a mentor)
+- Production Engineering (partner with companies like Cloudflare, GitHub)
 
-Stipend: $5,000 for 12 weeks
-Location: Remote (worldwide)
+Stipend: $5,000 for 12 weeks (remote)
 Duration: June – August 2026
+Location: Fully remote — open to Pakistani students
 
-Eligibility:
-- Currently enrolled student OR recent grad (within 1 year)
-- Strong GitHub portfolio preferred
-- No CGPA requirement
+Eligibility: Currently enrolled student OR recent graduate (within 1 year)
+No CGPA minimum requirement. Strong GitHub portfolio preferred.
 
-Apply by: 10 May 2026
+Deadline: 10 May 2026
+Apply: https://fellowship.mlh.io`,
 
-Apply here: https://fellowship.mlh.io
-
----
-
----------- Forwarded message ---------
-From: Udemy Business <noreply@udemy.com>
+  `---------- Forwarded message ---------
+From: noreply@udemy.com
 To: subscriber@gmail.com
 Date: Sat, 12 Apr 2026 09:00:00 +0500
-Subject: 🔥 FLASH SALE: All Courses PKR 449 – Today Only!
+Subject: 🔥 FLASH SALE: ALL Courses Just PKR 449 – TODAY ONLY!
 
 Hi there,
 
-Don't miss our BIGGEST sale of the year!
+Don't miss our BIGGEST sale of the year! Every course on Udemy is just PKR 449 today only.
 
-🎓 Python for Data Science – PKR 449 (was PKR 8,999)
-🎓 Complete Web Developer Bootcamp – PKR 449
-🎓 Machine Learning A-Z – PKR 449
+Top picks:
+🎓 Python for Data Science – was PKR 8,999
+🎓 Complete Web Developer Bootcamp – was PKR 9,499
+🎓 Machine Learning A-Z – was PKR 10,999
 
-Sale ends TONIGHT at 11:59 PM!
-
+Sale ends TONIGHT at midnight!
 Use code: FLASH449
 
 Shop now: https://www.udemy.com/deals
+Unsubscribe | Privacy Policy | Terms`,
 
-Unsubscribe | Privacy Policy
+  `---------- Forwarded message ---------
+From: NUST SEECS Research Office <research@seecs.nust.edu.pk>
+To: ml-students@seecs.nust.edu.pk
+Date: Mon, 7 Apr 2026 15:00:00 +0500
+Subject: Research Assistantship – AI & NLP Lab, NUST SEECS
 
----
+The AI & NLP Research Lab at NUST SEECS invites applications for Research Assistantship positions.
 
----------- Forwarded message ---------
-From: FAST-NU Academic Affairs <academics@nu.edu.pk>
-Date: Sun, 13 Apr 2026 10:00:00 +0500
-Subject: Elective Course Registration – Summer 2026
+Position: Research Assistant (part-time or full-time)
+Lab: AI & NLP Lab, School of Electrical Engineering & Computer Science
+Supervisor: Dr. Awais Athar
+
+Requirements:
+- Strong background in Machine Learning, NLP, Python, PyTorch or TensorFlow
+- Minimum CGPA: 3.5
+- Must be enrolled in BS or MS at NUST
+
+Stipend: PKR 20,000/month (after 3-month probation)
+Duration: 6 months, renewable
+Deadline: Rolling admissions — apply ASAP
+
+Send CV + 1-page research statement to: research@seecs.nust.edu.pk`,
+
+  `---------- Forwarded message ---------
+From: Jazz Scholarships <scholarships@jazz.com.pk>
+To: students-pk@list.org
+Date: Sun, 6 Apr 2026 12:00:00 +0500
+Subject: Jazz STEM Scholarship 2026 – PKR 50,000 + Internship for Top STEM Students
 
 Dear Students,
 
-Summer 2026 elective course registration is now open on SLATE.
+Jazz (Veon Pakistan) is proud to announce the Jazz STEM Scholarship 2026 for outstanding STEM students across Pakistan.
 
-Available Courses:
-- CS-471: Deep Learning (3 credit hours)
-- CS-452: Cloud Computing (3 credit hours)
-- SE-410: Mobile Application Development (3 credit hours)
+Award:
+- PKR 50,000 one-time scholarship
+- Paid internship at Jazz HQ, Islamabad (2 months)
+- Mentorship from Jazz engineers
 
-Registration Deadline: 20 April 2026
-Classes begin: 1 May 2026
+Eligibility:
+- Pakistani national enrolled in BS CS, SE, EE, or related STEM program
+- Semester 3–6
+- Minimum CGPA: 3.2
+- Financial need preferred
 
-Login at: https://slate.nu.edu.pk
+Required Documents:
+- Academic transcripts
+- CNIC copy
+- Personal statement (300 words)
+- Two reference letters from faculty
 
-Note: Maximum 2 electives per student.
+Deadline: 20 April 2026
+Apply: https://jazz.com.pk/stem-scholarship-2026
+Contact: scholarships@jazz.com.pk`,
+];
 
----
-
----------- Forwarded message ---------
-From: research.lab@pieas.edu.pk
-To: ml-students@list.pk
-Date: Mon, 7 Apr 2026 15:00:00 +0500
-Subject: Research Position – AI/ML Lab PIEAS
-
-We are looking for motivated students to join our AI/ML research group at PIEAS.
-
-Position: Research Associate (part-time, unpaid initially)
-Requirements: Strong background in ML, Python, PyTorch
-Duration: 6 months with possible stipend after 3 months
-Deadline: (not mentioned)
-
-If interested, send your CV and a brief statement of interest.
-Contact: research.lab@pieas.edu.pk
-
-`;
+// Legacy single-string format for compatibility
+export const SAMPLE_EMAILS = SAMPLE_EMAILS_ARRAY.join("\n\n---\n\n");
 
 export const DEFAULT_PROFILE = {
   name: "Ali Hassan",
-  degree: "Computer Science",
+  degree: "BS Computer Science",
   semester: 6,
   cgpa: 3.2,
   skills: ["Python", "React", "Machine Learning", "Node.js"],

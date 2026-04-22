@@ -1,75 +1,56 @@
-import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
+import OpenAI from "openai";
 import type { ExtractedOpportunity } from "./types";
 
-const responseSchema = {
-  type: SchemaType.ARRAY,
-  items: {
-    type: SchemaType.OBJECT,
-    properties: {
-      emailIndex: { type: SchemaType.NUMBER },
-      isOpportunity: { type: SchemaType.BOOLEAN },
-      title: { type: SchemaType.STRING },
-      type: {
-        type: SchemaType.STRING,
-        enum: ["scholarship", "internship", "fellowship", "competition", "research", "admission", "course", "spam", "unknown"],
-      },
-      organization: { type: SchemaType.STRING },
-      deadline: { type: SchemaType.STRING, nullable: true },
-      deadlineRaw: { type: SchemaType.STRING, nullable: true },
-      eligibility: { type: SchemaType.STRING, nullable: true },
-      minCGPA: { type: SchemaType.NUMBER, nullable: true },
-      requiredDocs: { type: SchemaType.ARRAY, items: { type: SchemaType.STRING } },
-      skills: { type: SchemaType.ARRAY, items: { type: SchemaType.STRING } },
-      applicationLink: { type: SchemaType.STRING, nullable: true },
-      contactEmail: { type: SchemaType.STRING, nullable: true },
-      fundingMentioned: { type: SchemaType.BOOLEAN },
-      location: { type: SchemaType.STRING, nullable: true },
-      degreeRequirement: { type: SchemaType.STRING, nullable: true },
-      isStrictDegree: { type: SchemaType.BOOLEAN },
-      summary: { type: SchemaType.STRING },
-      rawSnippet: { type: SchemaType.STRING },
-    },
-    required: [
-      "emailIndex", "isOpportunity", "title", "type", "organization",
-      "requiredDocs", "skills", "fundingMentioned", "isStrictDegree", "summary", "rawSnippet"
-    ],
-  },
-};
-
 export async function extractOpportunities(emailsText: string): Promise<ExtractedOpportunity[]> {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) throw new Error("GEMINI_API_KEY not set");
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) throw new Error("OPENAI_API_KEY not set");
 
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({
-    model: "gemini-2.0-flash",
-    generationConfig: {
-      responseMimeType: "application/json",
-      responseSchema: responseSchema as never,
-    },
-  });
+  const client = new OpenAI({ apiKey });
 
-  const emails = emailsText.split(/\n---+\n/).map((e, i) => `[EMAIL ${i}]\n${e.trim()}`).filter(e => e.length > 20);
+  const emails = emailsText
+    .split(/\n---+\n/)
+    .map((e, i) => `[EMAIL ${i}]\n${e.trim()}`)
+    .filter(e => e.length > 20);
 
-  const prompt = `You are an expert at parsing student opportunity emails. Analyze these ${emails.length} emails and extract structured information.
+  const prompt = `You are an expert at parsing student opportunity emails. Analyze these ${emails.length} emails and return a JSON object with key "opportunities" containing an array.
 
-For each email:
-- Set isOpportunity=false for promotional spam, course registration notices, or non-opportunity content
-- Extract the EXACT deadline as ISO date (YYYY-MM-DD) in the "deadline" field
-- Put the original deadline text in "deadlineRaw"
-- Extract all required documents as an array
-- Extract required technical skills as an array
-- Set fundingMentioned=true only if stipend, scholarship money, or financial support is mentioned
-- Set minCGPA to the numeric minimum CGPA if stated, null otherwise
-- For "type": use "spam" for promotional emails, "course" for course registrations
-- rawSnippet: first 120 chars of the email body
-- Never hallucinate links or emails — extract only what's literally present
+Each item in the array must have these exact fields:
+- emailIndex (integer): index from 0
+- isOpportunity (boolean): false for spam/promotional/course-registration
+- title (string): short title of the opportunity
+- type (string): one of scholarship|internship|fellowship|competition|research|admission|course|spam|unknown
+- organization (string): sending organization
+- deadline (string|null): ISO date YYYY-MM-DD or null
+- deadlineRaw (string|null): original deadline text or null
+- eligibility (string|null): eligibility summary or null
+- minCGPA (number|null): minimum CGPA required or null
+- requiredDocs (array of strings): required documents
+- skills (array of strings): required skills
+- applicationLink (string|null): application URL or null
+- contactEmail (string|null): contact email or null
+- fundingMentioned (boolean): true if stipend/scholarship money mentioned
+- location (string|null): location or null
+- degreeRequirement (string|null): required degree or null
+- isStrictDegree (boolean): true if degree is a hard requirement
+- summary (string): 1-2 sentence summary
+- rawSnippet (string): first 120 chars of email body
+
+Rules:
+- Never hallucinate links or emails — only extract what is literally present
+- Return null for any missing field (not empty string)
 
 Emails to analyze:
-${emails.join("\n\n")}`;
+${emails.join("\n\n")}
 
-  const result = await model.generateContent(prompt);
-  const text = result.response.text();
-  const parsed = JSON.parse(text) as ExtractedOpportunity[];
-  return parsed;
+Respond with ONLY valid JSON: {"opportunities": [...]}`;
+
+  const response = await client.chat.completions.create({
+    model: "gpt-4o-mini",
+    messages: [{ role: "user", content: prompt }],
+    response_format: { type: "json_object" },
+  });
+
+  const text = response.choices[0].message.content ?? '{"opportunities":[]}';
+  const parsed = JSON.parse(text) as { opportunities: ExtractedOpportunity[] };
+  return parsed.opportunities ?? [];
 }
